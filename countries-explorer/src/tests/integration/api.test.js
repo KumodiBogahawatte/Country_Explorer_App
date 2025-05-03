@@ -1,15 +1,17 @@
 import axios from "axios";
-import { getAllCountries, getCountryByName, getCountriesByRegion, getCountryByCode } from "../services/api";
+import { 
+  getAllCountries, 
+  getCountryByName, 
+  getCountriesByRegion, 
+  getCountryByCode 
+} from "../../services/api";
 
 // Mock axios
 jest.mock("axios");
 
-describe("API Services", () => {
+describe("API Services (Integration)", () => {
   beforeEach(() => {
-    // Clears any mocked method calls before each test
     jest.clearAllMocks();
-    // If you were spying on console.error, you'd restore it here
-    // jest.restoreAllMocks();
   });
 
   test("getAllCountries fetches data successfully", async () => {
@@ -18,14 +20,11 @@ describe("API Services", () => {
       { name: { common: "France" } }
     ];
 
-    // Mock axios.get to return the desired data for this specific call
     axios.get.mockResolvedValueOnce({ data: mockCountries });
 
     const result = await getAllCountries();
 
-    // Expect axios.get to have been called with the correct URL
     expect(axios.get).toHaveBeenCalledWith("https://restcountries.com/v3.1/all");
-    // Expect the function to return the mocked data
     expect(result).toEqual(mockCountries);
   });
 
@@ -43,8 +42,8 @@ describe("API Services", () => {
 
   test("getCountriesByRegion fetches countries by region", async () => {
     const mockRegionCountries = [
-      { name: { common: "Germany", official: "Federal Republic of Germany" } },
-      { name: { common: "France", official: "French Republic" } }
+      { name: { common: "Germany" } },
+      { name: { common: "France" } }
     ];
     const region = "europe";
 
@@ -68,22 +67,17 @@ describe("API Services", () => {
     expect(result).toEqual(mockCountry);
   });
 
-  test("handles API errors correctly", async () => {
+  test("handles API errors properly", async () => {
     const errorMessage = "Request failed with status code 404";
     const error = new Error(errorMessage);
-    // Mock axios.get to reject with an error
     axios.get.mockRejectedValueOnce(error);
 
-    // Use a spy to check if console.error is called in the catch block
+    // Spy on console.error to verify it's called
     const consoleSpy = jest.spyOn(console, 'error').mockImplementation(() => {});
 
-    // Expect the promise returned by getAllCountries to reject with the original error
     await expect(getAllCountries()).rejects.toThrow(errorMessage);
+    expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Error fetching all countries'), error);
 
-    // Expect console.error to have been called with the error
-    expect(consoleSpy).toHaveBeenCalledWith('Error fetching all countries:', error);
-
-    // Restore the original console.error implementation
     consoleSpy.mockRestore();
   });
 });

@@ -1,12 +1,10 @@
 {
   "name": "countries-explorer",
   "version": "0.1.0",
-  "homepage": "https://github.com/SE1020-IT2070-OOP-DSA-25/af-2-IT22053282.git",
+  "homepage": "",
   "private": true,
   "dependencies": {
     "@testing-library/dom": "^10.4.0",
-    "@testing-library/jest-dom": "^6.6.3",
-    "@testing-library/react": "^16.3.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.9.0",
     "bootstrap": "^5.3.5",
@@ -48,5 +46,9 @@
     "transformIgnorePatterns": [
       "node_modules/(?!(axios|react-router-dom)/)"
     ]
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0"
   }
 }
