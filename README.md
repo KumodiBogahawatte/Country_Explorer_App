@@ -1,69 +1,154 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/mNaxAqQD)
 
-# Countries Explorer
 
-A React application that allows users to explore countries around the world using the REST Countries API.
+# 🌍 Countries Explorer
 
-## Live Demo
-[View the live application](https://your-deployment-url.netlify.app)
+A responsive React application that allows users to explore information about countries around the world using the [REST Countries API](https://restcountries.com/). This project was developed as part of the SE3040 – Application Frameworks course at SLIIT.
 
-## Features
-- View details about countries including name, capital, region, population, flag, and languages
-- Search for countries by name
-- Filter countries by region
-- Mark countries as favorites (requires login)
-- Responsive design for all screen sizes
+## 🚀 Live Demo
 
-## Technologies Used
-- React (with functional components and hooks)
-- React Router for navigation
-- Bootstrap for styling
-- Context API for state management
-- Jest and React Testing Library for testing
+👉 [View the live application on Netlify](https://countries-explorer-app.netlify.app/)
 
-## Installation and Setup
-1. Clone the repository:
-git clone https://github.com/SE1020-IT2070-OOP-DSA-25/af-2-IT22053282.git
-cd countries-explorer
+---
 
-2. Install dependencies:
-npm install
+## 📌 Features
 
-3. Start the development server:
-npm start
+- 🔍 Search for countries by name
+- 🌍 Filter countries by region
+- 🇺🇳 View details of countries including:
+  - Name
+  - Capital
+  - Region
+  - Population
+  - Languages
+  - National Flag
+- ❤️ Mark countries as favorites (requires login)
+- 🔐 Manage user session with `localStorage`
+- 💡 Responsive design suitable for all screen sizes
+- ✅ Unit and integration testing with Jest and React Testing Library
 
-4. To run tests:
-npm test
+---
 
-5. To build for production:
-npm run build
+## 🛠️ Technologies Used
 
+- **Frontend Framework**: React (Functional Components + Hooks)
+- **Routing**: React Router
+- **Styling**: Bootstrap
+- **State Management**: React Context API
+- **Testing**: Jest, React Testing Library
+- **Deployment**: Netlify
+- **Version Control**: Git & GitHub
 
-## API Integration
-This project uses the REST Countries API with the following endpoints:
-- GET /all - to get all countries
-- GET /name/{name} - to search countries by name
-- GET /region/{region} - to filter countries by region
-- GET /alpha/{code} - to get detailed information about a specific country
+---
 
-## Challenges and Solutions
-1. **Challenge**: Handling API response structure changes
-- **Solution**: Created custom data processing functions to normalize API data
+## 📂 Installation & Setup
 
-2. **Challenge**: Managing user session state across the application
-- **Solution**: Implemented React Context API with localStorage for persistence
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/SE1020-IT2070-OOP-DSA-25/af-2-IT22053282.git
+   cd countries-explorer
+   ```
 
-3. **Challenge**: Creating a responsive design that works well on mobile
-- **Solution**: Utilized Bootstrap's responsive grid system and custom media queries
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
 
-## Future Improvements
-- Add more advanced filtering options
-- Implement a backend for actual user authentication
-- Add ability to create and share custom country collections
+3. **Start the development server**
+   ```bash
+   npm start
+   ```
 
-# Build the application
-npm run build
+4. **Run tests**
+   ```bash
+   npm test
+   ```
 
-# Deploy to Netlify (if using Netlify CLI)
-netlify deploy --prod
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
 
+6. **Deploy to Netlify**
+   ```bash
+   netlify deploy --prod
+   ```
+
+---
+
+## 🌐 REST Countries API Endpoints Used
+
+This application integrates with the REST Countries API using the following endpoints:
+
+- `GET /all` – Get all countries
+- `GET /name/{name}` – Search countries by name
+- `GET /region/{region}` – Filter countries by region
+- `GET /alpha/{code}` – Get detailed country information by code
+
+---
+
+## 🧪 Testing
+
+- Unit and integration tests are included using:
+  - **Jest**: for unit tests
+  - **React Testing Library**: for rendering and interaction tests
+- Example tested components include:
+  - SearchBar
+  - CountryCard
+  - CountryDetails
+  - Favorites List
+
+---
+
+## 🔐 User Session Management
+
+- Favorite countries are saved for logged-in users.
+- Session is maintained using `localStorage`.
+- Context API manages global state (favorites, authentication, etc.).
+
+---
+
+## 🧠 Challenges & Solutions
+
+| Challenge | Solution |
+|----------|----------|
+| API response structure inconsistencies | Created a custom data processor to normalize data |
+| State persistence after reloads | Used `localStorage` in combination with Context API |
+| Responsive layout issues | Used Bootstrap's grid system and custom media queries |
+| SPA routing on Netlify | Added a `_redirects` file to handle client-side routes correctly |
+
+---
+
+## 🔮 Future Improvements
+
+- Implement backend-based user authentication
+- Add filtering by language, currency, and subregion
+- Let users create and share custom country collections
+- Dark/light theme toggle
+- Add pagination or lazy loading for country results
+
+---
+
+## 👨‍💻 Developer
+
+- **Name**: Kumodi Bogahawatte
+- **Index Number**: IT22053282
+- **GitHub**: [https://github.com/SE1020-IT2070-OOP-DSA-25](https://github.com/SE1020-IT2070-OOP-DSA-25)
+
+---
+
+## ✅ Submission Checklist
+
+- [x] GitHub repository with meaningful commits
+- [x] Responsive frontend using React
+- [x] Consumes at least 4 API endpoints
+- [x] Fully functional search and filter
+- [x] Unit and integration testing implemented
+- [x] Netlify deployment live
+- [x] README.md with all project details
+
+---
+
+## 📜 License
+
+This project is intended for educational purposes only and is not licensed for commercial use.
