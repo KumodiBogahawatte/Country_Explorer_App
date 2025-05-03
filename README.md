@@ -61,29 +61,6 @@ This project uses the REST Countries API with the following endpoints:
 - Implement a backend for actual user authentication
 - Add ability to create and share custom country collections
 
-
-## API Integration
-This project uses the REST Countries API with the following endpoints:
-- GET /all - to get all countries
-- GET /name/{name} - to search countries by name
-- GET /region/{region} - to filter countries by region
-- GET /alpha/{code} - to get detailed information about a specific country
-
-## Challenges and Solutions
-1. **Challenge**: Handling API response structure changes
-- **Solution**: Created custom data processing functions to normalize API data
-
-2. **Challenge**: Managing user session state across the application
-- **Solution**: Implemented React Context API with localStorage for persistence
-
-3. **Challenge**: Creating a responsive design that works well on mobile
-- **Solution**: Utilized Bootstrap's responsive grid system and custom media queries
-
-## Future Improvements
-- Add more advanced filtering options
-- Implement a backend for actual user authentication
-- Add ability to create and share custom country collections
-
 # Build the application
 npm run build
 
