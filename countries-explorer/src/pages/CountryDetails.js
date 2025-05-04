@@ -82,7 +82,6 @@ const CountryDetails = () => {
         <Col md={6}>
           <div className="d-flex justify-content-between align-items-start">
             <h1>{country.name.common}</h1>
-            {/* Only show favorite button if user is logged in */}
             {user && (
               <Button
                 variant={isFavorite(country.cca3) ? "danger" : "outline-danger"}

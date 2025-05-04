@@ -3,13 +3,13 @@ import { Form, Button, Alert } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/UserContext';
 
-const Login = () => {
+const Register = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { login } = useAuth();
+  const { register } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -17,7 +17,7 @@ const Login = () => {
     setLoading(true);
 
     try {
-      await login(username, password);
+      await register(username, password);
       navigate('/');
     } catch (err) {
       setError(err.message);
@@ -32,7 +32,7 @@ const Login = () => {
         <div className="col-md-6">
           <div className="card shadow">
             <div className="card-body">
-              <h2 className="card-title text-center mb-4">Login</h2>
+              <h2 className="card-title text-center mb-4">Register</h2>
               {error && <Alert variant="danger">{error}</Alert>}
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
@@ -55,15 +55,15 @@ const Login = () => {
                 </Form.Group>
                 <div className="d-grid">
                   <Button variant="dark" type="submit" disabled={loading}>
-                    {loading ? 'Logging in...' : 'Login'}
+                    {loading ? 'Registering...' : 'Register'}
                   </Button>
                 </div>
               </Form>
               <div className="text-center mt-3">
                 <small>
-                  Don't have an account?{' '}
-                  <a href="/register" className="text-dark">
-                    Register here
+                  Already have an account?{' '}
+                  <a href="/login" className="text-dark">
+                    Login here
                   </a>
                 </small>
               </div>
@@ -75,4 +75,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;

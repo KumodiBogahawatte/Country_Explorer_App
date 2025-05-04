@@ -1,12 +1,11 @@
-import React, { useContext } from "react";
-import { Card, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
-import { UserContext } from "../context/UserContext";
+import React, { useContext } from 'react';
+import { Card, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { UserContext } from '../context/UserContext';
 
 const CountryCard = ({ country }) => {
   const { user, addFavorite, removeFavorite, isFavorite } = useContext(UserContext);
-  // Only check for favorites if user is logged in
-  const isCountryInFavorites = user && isFavorite(country.cca3);
+  const isCountryInFavorites = isFavorite(country.cca3);
 
   const handleFavoriteToggle = (e) => {
     e.preventDefault();
@@ -47,7 +46,6 @@ const CountryCard = ({ country }) => {
             More Details
           </Button>
           
-          {/* Only show favorite button if user is logged in */}
           {user && (
             <Button
               variant={isCountryInFavorites ? "danger" : "outline-danger"}

@@ -33,7 +33,7 @@ const Home = () => {
   const handleSearch = async (query) => {
     setSearchQuery(query);
     setSelectedRegion('');
-    
+
     if (!query.trim()) {
       try {
         setLoading(true);
@@ -64,7 +64,7 @@ const Home = () => {
   const handleFilter = async (region) => {
     setSelectedRegion(region);
     setSearchQuery('');
-    
+
     if (!region) {
       try {
         setLoading(true);
